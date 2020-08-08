@@ -12,3 +12,12 @@
 
 ## 文件形式
 Demo 文件一般以 `.html` 文件承载，便于在线阅读和本地调试。
+
+## 工具
+
+### Browsersync
+```shell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+npm install -g browser-sync
+browser-sync start --server --files "*/*.html,*/*.js,*/*.css"
+```

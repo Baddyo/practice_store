@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = 6;
+        let b1 = {
+            value: 6,
+        };
+        let b2 = {
+            value: 6,
+            valueOf() {
+                return 6;
+            }
+        };
+        let b3 = {
+            value: 6,
+            valueOf() {
+                return {
+                    value: 6
+                }
+            },
+            toString() {
+                return '6'
+            }
+        };
+        let b4 = {
+            value: 6,
+            valueOf() {
+                return 7;
+            },
+            toString() {
+                return '6'
+            }
+        };
+        // console.log(a == b1); // false
+        // console.log(a == b2); // true
+        // console.log(a == b3); // true
+        // console.log(a == b4); // false
+
+        console.log([] == ![]); // true
+        console.log(null === null); // true
+    </script>
+</body>
+
+</html>

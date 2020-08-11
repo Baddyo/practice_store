@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Human {
+            constructor(name) {
+                this.name = name;
+            }
+            sayName() {
+                console.log(`Hello, I'm ${this.name}.`);
+            }
+        }
+        class Male extends Human {
+            constructor(name) {
+                super(name);
+            }
+            sayGender() {
+                console.log(`I'm a man.`);
+            }
+        }
+
+        let man = new Male('Badd');
+        man.sayName();
+        man.sayGender();
+    </script>
+</body>
+
+</html>

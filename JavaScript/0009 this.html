@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            name: 'badd',
+            func: function () {
+                console.log(this.name);
+            }
+        };
+
+        // obj1.func(); // 'badd'
+        // let f = obj1.func;
+        // f(); // 返回 ''，此时 this 指向全局对象 window
+        // console.log(window.name); // ''
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(() => {
+        //         console.log(i);
+        //     }, i * 1000);
+        // }
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((count) => {
+        //         console.log(count);
+        //     }, i * 1000, i);
+        // }
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((() => {
+        //         return function (i) {
+        //             console.log(i);
+        //         }
+        //     })(), i * 1000);
+        // } // 打印出 5 个 undefined，因为闭包函数被执行时没有接收到参数。
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((() => {
+        //         return function () {
+        //             console.log(i);
+        //         }
+        //     })(), i * 1000);
+        // } // 打印出 5 个 5，因为闭包函数执行时，沿着作用域链找到了全局作用域中的 i
+
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout(((i) => {
+        //         return function () {
+        //             console.log(i);
+        //         }
+        //     })(i), i * 1000);
+        // } // 结果符合预期，立即执行函数接收了当前循环的 i 作为参数，成了立即执行函数的作用域中的一部分，当闭包函数执行时，在父函数的作用域中找到了 i
+    </script>
+</body>
+
+</html>

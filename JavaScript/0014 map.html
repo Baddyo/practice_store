@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let mp = new Map();
+        mp.set('a',1);
+        console.log(mp); // Map(1) {"a" => 1}
+        console.log(mp.get('a')); // 1
+        mp.delete('a');
+        console.log(mp.has('a')); // false
+        mp.clear();
+        // let ks = mp.keys(); // 得到一个迭代器
+        // let vs = mp.values(); // 得到一个迭代器
+        // let es = mp.entries(); // 得到一个迭代器
+        // console.log(es.next()); // {done: false, value:[2, 2]}
+        // mp.forEach((x,i)=>{
+        //     console.log('forEach',x,i);
+        // })
+
+        // let wrongeMap = new Map();
+        // wrongeMap['a'] = 1;
+        // wrongeMap['b'] = 2;
+        // console.log(wrongeMap);
+        // console.log(wrongeMap.has('a')); // false
+        // console.log(wrongeMap.size); // 0
+    </script>
+</body>
+
+</html>

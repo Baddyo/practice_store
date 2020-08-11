@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // console.log(Object()); // {}
+        // console.log(Object(null)); // {}
+        // console.log(new Object(null)); // {}
+        // console.log(Object(undefined)); // {}
+        // console.log(new Object(undefined)); // {}
+        // console.log(Object('a')); // String {'a'}
+        // console.log(Object({a: 1})); // {a: 1}
+
+        // 静态方法
+        // assign
+        // let target = {
+        //     a: 1,
+        //     b: 2
+        // };
+        // let src1 = {
+        //     b: 3,
+        //     c: 4
+        // };
+        // let src2 = {
+        //     d: 5,
+        //     e: 6
+        // };
+        // console.log(Object.assign(target, src1, src2)); // {a: 1, b: 3, c: 4, d: 5, e: 6}
+        // console.log(target); // {a: 1, b: 3, c: 4, d: 5, e: 6}
+        // create
+        let o1 = {
+            a: 1
+        };
+        // let o2 = Object.create(o1); // 以参数对象为原型创建一个新对象
+        // console.log(Object.getPrototypeOf(o2)); // {a: 1}
+        // defineProperty
+        // Object.defineProperty(o1, 'a', {
+        //     writable: false
+        // }); // 修改已有属性
+        // o1.a = 2;
+        // console.log(o1); // {a: 1}
+        // data descriptor
+        // Object.defineProperty(o1, 'b', {
+        //     // configurable: true, // 默认为 false，删除属性、修改 descriptor 不会成功
+        //     // enumerable:true, // 默认为 false，不能在 for...in 和 Object.keys() 中枚举出来
+        //     value: 4
+        //     // writable: true, // 默认为 false，修改值不会成功
+        // }); // 定义新属性
+        // // for (const key in o1) {
+        // //     console.log(key);
+        // // }
+        // // console.log(Object.keys(o1));
+        // o1.b = 8;
+        // delete o1.b;
+        // accessor descriptor
+        // let c = 16;
+        // Object.defineProperty(o1, 'c', {
+        //     // configurable: true, // 默认为 false，删除属性、修改 descriptor 不会成功
+        //     // enumerable:true, // 默认为 false，不能在 for...in 和 Object.keys() 中枚举出来
+        //     get() {
+        //         return c;
+        //     },
+        //     set(val) {
+        //         c = val;
+        //     }
+        // }); 打印 o1 看不到属性 c
+        // defineProperties
+        // Object.defineProperties(o1, {
+        //     d: {
+        //         configurable: true,
+        //         enumerable: true,
+        //         writable: true,
+        //         value: 32
+        //     },
+        //     e: {
+        //         configurable: true,
+        //         enumerable: true,
+        //         get() {
+        //             return 64
+        //         }
+        //     },
+        // });
+        // console.log(o1);
+        // console.log(Object.keys(o1));
+        // entries
+        o1.b = 2;
+        // console.log(Object.entries(o1)); // [['a',1],['b',2]]
+        // freeze
+        // Object.freeze(o1);
+        // o1.c = 3;
+        // delete o1.b;
+        // console.log(o1); // {a: 1, b: 2}
+        // fromEntries
+        // let ets = [
+        //     ['name', 'badd'],
+        //     ['gender', 'male']
+        // ];
+        // console.log(Object.fromEntries(ets)); // {name: "badd", gender: "male"}
+        // getOwnPropertyDescriptor
+        // console.log(Object.getOwnPropertyDescriptor(o1, 'a')); // {value: 1, writable: true, enumerable: true, configurable: true}
+        // getOwnPropertyNames
+        // Object.defineProperty(o1,'b',{
+        //     enumerable:false
+        // })
+        // console.log(Object.getOwnPropertyNames(o1)); // ["a", "b"] 也包含不可枚举属性
+        // console.log(Object.keys(o1)); // ["a"] 不包含不可枚举属性
+        // console.log(Object.is(o1,{a:1,b:2})); // false
+        // Object.freeze(o1); // 不能添加、修改、删除属性
+        // Object.preventExtensions(o1); // 不能添加新属性，可以修改、删除已有属性
+        // Object.seal(o1); // 不能添加、删除，只能修改
+        // delete o1.a;
+        // o1.b=50;
+        // o1.c=100;
+        // console.log(Object.isExtensible(o1)); //  
+        // console.log(Object.isFrozen(o1)); // 
+        // console.log(Object.isSealed(o1)); // 
+        // console.log(Object.values(o1)); // [1, 2] 所有的自有的、可枚举的属性的值
+        console.log(o1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function cln(source) {
+            // debugger
+            if (source === null || (typeof source !== 'object')) {
+                return source;
+            }
+            let result = {};
+            let props = Object.getOwnPropertyNames(source);
+            props.forEach(x => {
+                result[x] = cln(source[x]);
+            });
+
+            return result;
+        }
+
+        let obj = {
+            a: 1,
+            b: 'bbb',
+            c: function () {
+                return 100;
+            },
+            d: [1, 2, 3],
+            e: {
+                name: 'e',
+                child: {
+                    f: {
+                        name: 'f',
+                        child: null
+                    }
+                }
+            }
+        };
+
+        let res = cln(obj);
+        console.log(res);
+        console.log(res.c());
+        obj.c = function () {
+            return 300;
+        };
+        console.log(res.c());
+    </script>
+</body>
+
+</html>

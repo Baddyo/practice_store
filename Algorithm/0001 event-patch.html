@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="trig()">Trig it</button>
+    <script>
+        class Evt {
+            constructor() {
+                this.store = {};
+            }
+            on(evtName, callback) {
+                if (this.store[evtName]) {
+                    if (this.store[evtName].indexOf(callback) === -1) {
+                        this.store[evtName].push(callback);
+                    }
+                } else {
+                    this.store[evtName] = [callback];
+                }
+            }
+            emit(evtName, data) {
+                if (Array.isArray(this.store[evtName])) {
+                    this.store[evtName].forEach(func => {
+                        func(data);
+                    });
+                }
+            }
+            off(evtName, callback) {
+                if (this.store[evtName] && this.store[evtName].indexOf(callback) !== -1) {
+                    this.store[evtName].splice(this.store[evtName].indexOf(callback), 1);
+                }
+            }
+        }
+
+        let evt = new Evt();
+
+        function t1(data) {
+            console.log('on trig 1', data);
+        }
+
+        function t2(data) {
+            console.log('on trig 2', data);
+        }
+        evt.on('trig', t1);
+        evt.on('trig', t1);
+        evt.on('trig', t2);
+
+        function trig() {
+            evt.emit('trig', 'My name is Slim Shady');
+            evt.off('trig', t1);
+        }
+    </script>
+</body>
+
+</html>

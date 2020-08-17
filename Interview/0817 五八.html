@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+function func(arr){
+    if(!Array.isArray){
+        throw new Error('Not an array');
+    }
+    let m = new Map();
+    for(let i=0; i<arr.length;i++){
+        let x = arr[i];
+        if(m.has(x)){
+            let prev = m.get(x);
+            m.set(x,{
+                index:prev.index,
+                count:count+1
+            });
+        }else{
+            m.set(x,{
+                index:i,
+                count:1
+            });
+        }
+    }
+    let maxCount=0;
+    let resultIndex=0;
+    for(let x of m){
+           if(m.count>maxCount){
+                maxCount=m.count;
+                resultIndex=m.index;
+            }
+    }
+    return arr[resultIndex];
+}
+
+
+    </script>
+</body>
+
+</html>

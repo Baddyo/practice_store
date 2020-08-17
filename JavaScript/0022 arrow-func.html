@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function a() {
+        //     console.log(arguments);
+        // }
+        // a(); // Arguments [callee: ƒ a(), length: 0, Symbol(Symbol.iterator): ƒ values(), __proto__: Object]
+        // a(1, 2,
+        // 3); // Arguments [1, 2, 3, callee: ƒ a(), length: 3, Symbol(Symbol.iterator): ƒ values(), __proto__: Object]
+
+        // let b = () => {
+        //     console.log(arguments);
+        // }
+        // // b(); // Uncaught ReferenceError: arguments is not defined
+
+        // let c = (...args) => {
+        //     console.log(args);
+        // }
+        // c(); // []
+        // c(1, 2, 3, 4); // [1, 2, 3, 4]
+    </script>
+    <script>
+        let obj = {
+            a: 1,
+            b: function () {
+                console.log('b', this.a);
+                console.log('b', this);
+            },
+            c: () => {
+                console.log('c', this.a);
+                console.log('c', this);
+            },
+            d: function () {
+                return () => {
+                    console.log('d', this.a);
+                    console.log('d', this);
+                }
+
+            }
+        };
+        // obj.b(); // 1、{a: 1, b: ƒ, c: ƒ}
+        // obj.c(); // undefined、Window
+        // obj.d()(); // 1、{a: 1, b: ƒ, c: ƒ}
+        // let e = obj.c;
+        // e.call(obj); // undefined、Window
+        let f= obj.d;
+        (f.call({a:'aaa'}))();
+    </script>
+    <script>
+        // function a() {}
+        // console.log(a.prototype); // {constructor: ƒ}
+        // let b=()=>{}
+        // console.log(b.prototype); // undefined
+    </script>
+</body>
+
+</html>

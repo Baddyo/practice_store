@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 1];
+        let total = 20;
+        let count = 0;
+
+        function fib(restCount) {
+            if (restCount <= 0) {
+                return
+            }
+            arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
+            fib(restCount - 1);
+            count++;
+        }
+        fib(total - 2);
+        console.log(count, arr);
+    </script>
+</body>
+
+</html>

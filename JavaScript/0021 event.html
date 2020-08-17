@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <input type="checkbox" name="wt" id="ckbx">
+        <p class="para para1">para 1</p>
+        <p class="para para2">para 2</p>
+    </div>
+    <script>
+        let box = document.querySelector('#box');
+        let ckbx = document.querySelector('#ckbx');
+        let p1 = document.querySelector('.para1');
+        let p2 = document.querySelector('.para2');
+
+        function bindEvt(ele, eventName, callback) {
+            ele.addEventListener(eventName, callback);
+        }
+
+        bindEvt(box, 'click', e => {
+            if (e.target == p1) {
+                console.log('ACTIVE');
+                return;
+            }
+            console.log('CANCEL');
+        });
+
+        // bindEvt(p1, 'click', e => {
+        //     e.stopPropagation();
+        //     console.log('ACTIVE');
+        // });
+    </script>
+    <script>
+        // let box = document.querySelector('#box');
+        // let ckbx = document.querySelector('#ckbx');
+        // let p1 = document.querySelector('.para1');
+        // let p2 = document.querySelector('.para2');
+
+        // box.addEventListener('click', function (e) {
+        //     e.preventDefault();
+        //     console.log('box target', e.target); // p.para1
+        //     console.log('box currentTarget', e.currentTarget); // div#box
+        // }, {
+        //     capture: true,
+        //     once: false,
+        //     passive: false
+        // });
+
+        // box.addEventListener('click', function (e) {
+        //     e.stopPropagation();
+        //     console.log('box target', e.target); // p.para1
+        //     console.log('box currentTarget', e.currentTarget); // div#box
+        // }, true);
+
+        // ckbx.addEventListener('click', function (e) {
+        //     e.preventDefault();
+        // }, {
+        //     passive: true
+        // });
+
+        // p1.addEventListener('click', function (e) {
+        //     // e.stopPropagation();
+        //     console.log('p1 target', e.target);
+        //     console.log('p1 currentTarget', e.currentTarget);
+        // });
+
+        // p1.addEventListener('mousedown', function (e) {
+        //     // e.stopPropagation();
+        //     // e.preventDefault();
+        //     // console.log('p1 target', e.target);
+        //     // console.log('p1 currentTarget', e.currentTarget);
+        // });
+    </script>
+</body>
+
+</html>

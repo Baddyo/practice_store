@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="back()">BACK</button>
+    <br>
+    <button onclick="forward()">FORWARD</button>
+    <br>
+    <button onclick="reload()">RELOAD</button>
+    <br>
+    <button onclick="pushState()">PUSH STATE</button>
+    <br>
+    <button onclick="replaceState()">REPLACE STATE</button>
+    <script>
+        window.addEventListener('popstate', function (e) {
+            console.log('state pop', history.state);
+        })
+        console.log(history.length); // 12
+        // console.log(history.scrollRestoration); // auto
+        console.log('state', history.state); // null
+
+        function back() {
+            // history.back();
+            history.go(-1);
+        }
+
+        function forward() {
+            // history.forward();
+            history.go(1);
+        }
+
+        function reload() {
+            // location.reload();
+            // history.go(0);
+            history.go();
+        }
+
+        function pushState() {
+            let state = {
+                name: 'Badd'
+            };
+            let title = 'TITLE';
+            // let url = 'http://localhost:3000/JavaScript/0013 set.html';
+            let url = '?num=1';
+            history.pushState(state, title, url);
+        }
+
+        function replaceState() {
+            let state = {
+                name: 'Badd replace'
+            };
+            let title = 'TITLE replace';
+            // let url = 'http://localhost:3000/JavaScript/0013 set.html';
+            let url = '?num=2';
+            history.replaceState(state, title, url);
+        }
+    </script>
+</body>
+
+</html>

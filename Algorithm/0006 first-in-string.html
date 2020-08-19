@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    给定一个字符串，找出第一个只出现一次的字符。
+    <script>
+        function alg3(str) {
+            // debugger
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+                let reg = new RegExp(char, 'g');
+                if (str.match(reg).length===1) {
+                    return char;
+                }
+            }
+        }
+        console.log(alg3('google'));
+    </script>
+    <script>
+        function alg2(str) {
+            // debugger
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+                if (str.indexOf(char)===str.lastIndexOf(char)) {
+                    return char;
+                }
+            }
+        }
+        // console.log(alg2('google'));
+    </script>
+    <script>
+        function alg1(str) {
+            let m = new Map();
+            for (let i = 0; i < str.length; i++) {
+                const char = str[i];
+                if (m.has(char)) {
+                    m.set(char, m.get(char) + 1);
+                } else {
+                    m.set(char, 1);
+                }
+            }
+            for (const x of m) {
+                if (x[1] === 1) {
+                    return x[0];
+                }
+            }
+        }
+        // console.log(alg1('google'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // toPrimitive
+        let obj = {
+            a: 1,
+            toString(){
+                return 'obj';
+            },
+            valueOf(){
+                return 100;
+            },
+            [Symbol.toPrimitive](){
+                return 200;
+            }
+        };
+        console.log(obj + ''); // '200'。toPrimitive 的优先级最高
+        console.log(obj.toString()); // 'obj'
+        console.log(233 + obj); // 433
+        console.log(obj > 'a'); // false
+        console.log(obj < 'a'); // false
+        console.log(obj == 'a'); // false
+    </script>
+    <script>
+        // hasInstance
+        // class Str0 {
+        //     static [Symbol.hasInstance](x) {
+        //         return typeof x === 'string';
+        //     }
+        // }
+        // console.log('object' instanceof Str0); // true
+
+        // class Str {
+        //     [Symbol.hasInstance](x) {
+        //         return typeof x === 'string';
+        //     }
+        // }
+        // console.log('object' instanceof Str); // false
+    </script>
+</body>
+
+</html>

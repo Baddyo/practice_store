@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Class 继承 -->
+    <script>
+        class Father{
+            constructor(){
+                this.name = 'pa';
+            }
+            claim(){
+                console.log(`I'm your ${this.name}`);
+            }
+        }
+        class Son extends Father{
+            constructor(){
+                super();
+                this.name = 'son';
+            }
+        }
+
+        let son = new Son();
+        son.claim();
+        console.log(son instanceof Father); // true
+    </script>
+    <!-- 原型继承 -->
+    <script>
+        // 组合继承
+        // function Father() {
+        //     this.name = 'pa';
+        // }
+        // Father.prototype.claim = function () {
+        //     console.log(`I'm your ${this.name}.`);
+        // };
+
+        // function Son() {
+        //     // Father.call(this); // 组合继承
+        //     this.name = 'son';
+        // }
+
+        // let father = new Father();
+        // Son.prototype = father;
+        // father.constructor = Son;
+
+        // let son = new Son();
+        // son.claim();
+        // console.log(son instanceof Father); // true
+    </script>
+    <script>
+        // 寄生组合继承
+        // function Father() {
+        //     this.name = 'pa';
+        // }
+        // Father.prototype.claim = function () {
+        //     console.log(`I'm your ${this.name}.`);
+        // };
+
+        // function Son() {
+        //     // Father.call(this);
+        //     this.name = 'son';
+        // }
+
+        // Son.prototype = Object.create(Father.prototype, {
+        //     contructor: {
+        //         value: Son,
+        //         enumerable: false,
+        //         writable: true,
+        //         configurable: true
+        //     }
+        // })
+
+        // let son = new Son();
+        // son.claim();
+        // console.log(son instanceof Father); // true
+    </script>
+</body>
+
+</html>

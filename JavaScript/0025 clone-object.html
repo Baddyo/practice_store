@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            a: 1,
+            b: 0,
+            c: null,
+            d: undefined,
+            e: 'a',
+            f: '',
+            g: ' ',
+            h: [1, 2, 3],
+            i: [],
+            j: {
+                name: 'badd',
+                age: 28
+            },
+            k: function () {
+                console.log('copy');
+            },
+            l:Symbol('l')
+        };
+
+        let s1 = Object.assign({}, obj1);
+        console.log(s1);
+        // let s2 = {...obj1};
+        let s3 = JSON.parse(JSON.stringify(obj1)); // undefined、Symbol 和 function 丢失，对象属性循环引用时报错
+        // obj1.h[0] = 10;
+        console.log(s3);
+    </script>
+</body>
+
+</html>

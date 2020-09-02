@@ -8,8 +8,20 @@
 </head>
 
 <body>
+    <div id="box"></div>
     <script>
-        
+        let frag = document.createDocumentFragment();
+        for (let i = 0; i < 10; i++) {
+            let a = document.createElement('a');
+            a.innerText = i;
+            a.setAttribute('href','https://www.bing.com');
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                console.log(i);
+            });
+            frag.appendChild(a);
+        }
+        document.querySelector('#box').appendChild(frag);
     </script>
 </body>
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Bar(pbj) {
+            this.obj = obj;
+        }
+        let obj = {
+            a: 1
+        };
+        let bar = new Bar(obj);
+        console.log(bar);
+        obj.a = 2;
+        console.log(bar);
+    </script>
+    <script>
+        // function Bar() {
+        //     this.a = 1;
+        //     return {
+        //         b: 2
+        //     };
+        // }
+
+        // let bar = new Bar;
+        // console.log(bar); // {b: 2}
+    </script>
+    <script>
+        // function Foo(a) {
+        //     console.log('from constructor');
+        //     this.a = a;
+        // }
+        // let o1 = new Foo();
+        // console.log(o1);
+
+        // let o2 = new Foo;
+        // console.log(o2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="dbc">DEBOUNCE</button>
+    <button id="trt">THROTTLE</button>
+    <script>
+        // 防抖：一定时间内只执行一次，若此时间内多次触发，那么每当触发就重新计时，直到此时间段内不再有新触发，才执行回调
+        let dbc = document.querySelector('#dbc');
+        let dbcNum = 0;
+        let dbcSTT = null;
+
+        // dbc.addEventListener('click', function (e) {
+        //     dbcSTT && clearTimeout(dbcSTT);
+        //     dbcSTT = setTimeout(() => {
+        //         console.log('dcb', dbcNum++);
+        //     }, 1000);
+        // });
+
+        function debounce(callback, time, a, b) {
+            let dbcSTT = null;
+            return function () {
+                dbcSTT && clearTimeout(dbcSTT);
+                dbcSTT = setTimeout(callback, time, a, b);
+            };
+        }
+        dbc.addEventListener('click', debounce(function (a, b) {
+            console.log('dcb', dbcNum++);
+            console.log(a, b);
+        }, 1000, '999', '000'));
+    </script>
+    <script>
+        // 节流：一定时间段内只处理一次，比如段内最后一次
+        let trt = document.querySelector('#trt');
+        let trtNum = 0;
+        let trtSTT = null;
+
+        // trt.addEventListener('click', function (e) {
+        //     if (!trtSTT) {
+        //         trtSTT = setTimeout(() => {
+        //             console.log('trt', trtNum++);
+        //             clearTimeout(trtSTT);
+        //             trtSTT = null;
+        //         }, 1000);
+        //     }
+        // });
+
+        function throttle(callback, time) {
+            let trtSTT = null;
+            return function () {
+                // debugger;
+                if (!trtSTT) {
+                    trtSTT = setTimeout(function(){
+                        callback();
+                        // clearTimeout(trtSTT);
+                        trtSTT = null;
+                    }, time);
+                }
+            };
+        }
+
+        trt.addEventListener('click', throttle(function () {
+            console.log('trt', trtNum++);
+        }, 1000));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.localStorage.setItem('name', 'badd');
+        window.localStorage.setItem('sex', null);
+        window.localStorage.setItem('job', undefined);
+        window.localStorage.setItem('age', 19);
+        window.localStorage.setItem('func', function () {
+            console.log('a')
+        });
+
+        window.localStorage.removeItem('age')
+        console.log(window.localStorage.getItem('age')); // null
+        window.localStorage.clear();
+    </script>
+</body>
+
+</html>

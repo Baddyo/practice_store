@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 判断一个变量是否是 Array 类型
+        function isArr1(data) {
+            return Array.isArray(data);
+        }
+
+        function isArr2(data) {
+            return data instanceof Array;
+        }
+
+        function isArr3(data) {
+            return Object.getPrototypeOf(data) === Array.prototype;
+        }
+
+        console.log(isArr1([]));
+    </script>
+</body>
+
+</html>

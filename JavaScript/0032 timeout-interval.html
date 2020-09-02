@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let siv1 = setInterval((a, b) => {
+            console.log(a + b);
+        }, 1000, 100, 300);
+        clearInterval(siv1);
+    </script>
+    <script>
+        // let stt = setTimeout('console.log("Wow")', 1000); // 这种写法不推荐，会有 eval 一样的安全风险
+
+        // setTimeout((a, b) => {
+        //     console.log(a + b);
+        // }, 2000, 100, 200); // 毫秒数后面的参数会传给被延迟执行的函数，个数不限
+
+        // let stt1 = setTimeout(() => {
+        //     console.log(stt1)
+        // }, 0); // 1。是一个 timeoutID
+        // let sti1 = setInterval(() => {
+        //     console.log(sti1); // 2。timeoutID 和 intervalID 共用一个 ID 池。
+        //     clearInterval(sti1);
+        // }, 1000);
+
+        // clearInterval 和 clearTimeout 可以互换使用，但不推荐这样做
+        // let stt2 = setTimeout(() => {
+        //     clearInterval(stt2)
+        // }, 0); 
+        // let sti2 = setInterval(() => {
+        //     console.log('before clear');
+        //     clearTimeout(sti2);
+        // }, 1000);
+
+        // let stt3 = setTimeout(() => {
+        //     console.log('stt3');
+        // }, 1000);
+
+        // let stt4 = setTimeout(() => {
+        //     console.log('stt4');
+        // }, 2000);
+    </script>
+</body>
+
+</html>

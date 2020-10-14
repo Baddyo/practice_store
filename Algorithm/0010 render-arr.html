@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成一个数组，元素为数字 0~23
+        // 不用 for 循环，和 ES6 有关
+        function renderArr(end) {
+            // 方法一
+            // return Array.from(new Array(end + 1).keys());
+            return [...new Array(end + 1).keys()];
+
+            // 方法二
+            // return Array.from({length: end + 1}, (value, index) => index);
+
+            // 方法三
+            
+
+        }
+        console.log(renderArr(23));
+    </script>
+</body>
+
+</html>

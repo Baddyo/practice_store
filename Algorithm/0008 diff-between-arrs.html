@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定两个数组，元素都为数字，找出二者的差异
+        function dif(a, b) {
+            if (!Array.isArray(a) || !Array.isArray(b)) {
+                throw new Error('Not a Array');
+            }
+
+            a = Array.from(new Set(a));
+
+            for (let i = 0; i < b.length; i++) {
+                const x = b[i];
+                let idx = a.indexOf(x);
+                if (idx >= 0) {
+                    a.splice(idx, 1);
+                } else {
+                    a.push(x)
+                }
+            }
+            return a;
+        }
+
+        console.log(dif([2, 2, 3], [1, 2, 4]));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 去掉数组最后一个元素
+        function cut(arr) {
+            if (!Array.isArray(arr)) {
+                throw new Error('Not a Array');
+            }
+
+            // arr.pop(); // 方法一
+            // arr.length = arr.length - 1; // 方法二
+            arr.splice(arr.length - 1, 1); // 方法三
+            return arr;
+        }
+
+        console.log(cut([2, 2, 3]));
+    </script>
+</body>
+
+</html>
